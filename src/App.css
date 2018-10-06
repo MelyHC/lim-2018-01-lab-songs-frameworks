@@ -3,6 +3,10 @@
   height: 25px;
 }
 
+.App-header {
+  text-align: initial;
+}
+
 h2 {
   padding-left: 15px;
 }
