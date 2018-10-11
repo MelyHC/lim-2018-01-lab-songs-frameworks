@@ -72,14 +72,10 @@ class App extends Component {
     }
   }
 
-  // handleArray = () => {
-
-  // }
-
-  handleLike = (index) => {
+  handleUpDown = (index, option) => {
     const { artists, currentArtist } = this.state;
-    artists[currentArtist].songs[index].like++;
-    artists[currentArtist].songs.sort((a, b) => a.like < b.like);
+    option ? artists[currentArtist].songs[index].like++ : artists[currentArtist].songs[index].like--;
+    artists[currentArtist].songs.sort((a, b) => b.like - a.like);
     this.setState({
       artists
     });
@@ -88,11 +84,7 @@ class App extends Component {
   handleDislike = (index) => {
     const { artists, currentArtist } = this.state;
     if (artists[currentArtist].songs[index].like > 0) {
-      artists[currentArtist].songs[index].like--;
-      artists[currentArtist].songs.sort((a, b) => a.like < b.like);
-      this.setState({
-        artists
-      });
+      this.handleUpDown(index)
     }
   }
 
@@ -107,14 +99,14 @@ class App extends Component {
         </header>
         {this.state.artists.length ? (
           <div>
-            <button onClick={this.handlePreview}>anterior</button>
-            <button onClick={this.handleNext}>siguiente</button>
+            <i className="preview fas fa-angle-left" onClick={this.handlePreview}></i>
+            <i className="next fas fa-angle-right" onClick={this.handleNext}></i>
             {this.state.artists.map((artist, i) =>
               <Artist key={i}
                 name={artist.name}
                 image={artist.image}
                 songs={artist.songs}
-                like={this.handleLike}
+                like={this.handleUpDown}
                 dislike={this.handleDislike} />
             )[this.state.currentArtist]}
           </div>

@@ -11,6 +11,14 @@ h2 {
   padding-left: 15px;
 }
 
+.next {
+  transform: translate(180px, 100px);
+}
+
+.preview {
+  transform: translate(-200px, 100px);
+}
+
 i {
   margin-top: 4px;
 }
@@ -21,6 +29,12 @@ i {
 
 .far {
   color: rgb(226, 37, 37);
+}
+
+.next , .preview {
+  position: absolute;
+  font-size: 3.5em;
+  color:rgb(147, 166, 159);;
 }
 
 .loading-logo {
@@ -34,6 +48,7 @@ i {
 }
 
 .song {
+  margin: 0px 20%;
   padding: 10px 0px;
   font-size: 1.1em
 }
@@ -58,8 +73,20 @@ i {
   }
 }
 
-/* @media (max-width: 380px) {
-  .song {
-    font-size: 0.8em
+@media (max-width: 400px) {
+  .imgArtist {
+    width: 245px;
   }
-} */
+  .song {
+    margin: 0px;
+  }
+
+  .next {
+    transform: translate(140px, 80px);
+  }
+  
+  .preview {
+    transform: translate(-160px, 80px);
+  }
+
+}
