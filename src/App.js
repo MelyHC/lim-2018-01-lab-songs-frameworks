@@ -72,12 +72,28 @@ class App extends Component {
     }
   }
 
+  // handleArray = () => {
+
+  // }
+
   handleLike = (index) => {
-    const { artists, currentArtist } = this.state
-    artists[currentArtist].songs[index].like++
+    const { artists, currentArtist } = this.state;
+    artists[currentArtist].songs[index].like++;
+    artists[currentArtist].songs.sort((a, b) => a.like < b.like);
     this.setState({
       artists
-    })
+    });
+  }
+
+  handleDislike = (index) => {
+    const { artists, currentArtist } = this.state;
+    if (artists[currentArtist].songs[index].like > 0) {
+      artists[currentArtist].songs[index].like--;
+      artists[currentArtist].songs.sort((a, b) => a.like < b.like);
+      this.setState({
+        artists
+      });
+    }
   }
 
   render() {
@@ -98,7 +114,8 @@ class App extends Component {
                 name={artist.name}
                 image={artist.image}
                 songs={artist.songs}
-                like={this.handleLike} />
+                like={this.handleLike}
+                dislike={this.handleDislike} />
             )[this.state.currentArtist]}
           </div>
         ) : (<h3 className="loading">Cargando <i className="loading-logo fas fa-spinner"></i></h3>)}

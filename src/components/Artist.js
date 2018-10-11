@@ -9,7 +9,7 @@ const Artist = (props) => {
         <div className="row song" key={i}>
           <span className="col-7 text-left">{song.nameSong}</span>
           <i className="fas fa-heart col-1" onClick={() => props.like(i)}></i>
-          <i className="far fa-thumbs-down col-1"></i>
+          <i className="far fa-thumbs-down col-1" onClick={() => props.dislike(i)}></i>
           <span className="col-3">{song.like}</span>
         </div>
       )}
