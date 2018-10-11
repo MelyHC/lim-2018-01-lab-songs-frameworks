@@ -13,13 +13,14 @@ class App extends Component {
       'madonna',
       'michaeljackson',
       'beatles',
-      'whitneyhouston'
+      'whitneyhouston',
+      'nirvana'
     ],
     currentArtist: 0,
     artists: []
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { artistAlbum } = this.state;
     const promisesArtist = artistAlbum.map(artist =>
       fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=108bddcd9fefc3e86bc16a18ad53e089&format=json`)
@@ -61,7 +62,7 @@ class App extends Component {
   }
 
   handlePreview = () => {
-    const { currentArtist, artistAlbum } = this.state;
+    const { currentArtist } = this.state;
     if (currentArtist === 0) {
       this.setState({ currentArtist: 5 })
     } else {
@@ -69,6 +70,14 @@ class App extends Component {
         currentArtist: currentArtist - 1
       })
     }
+  }
+
+  handleLike = (index) => {
+    const { artists, currentArtist } = this.state
+    artists[currentArtist].songs[index].like++
+    this.setState({
+      artists
+    })
   }
 
   render() {
@@ -80,14 +89,19 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
           </h2>
         </header>
-        <button onClick={this.handlePreview}>anterior</button>
-        <button onClick={this.handleNext}>siguiente</button>
-        {this.state.artists.map((artist, i) =>
-          <Artist key={i}
-            name={artist.name}
-            image={artist.image}
-            songs={artist.songs} />
-        )[this.state.currentArtist]}
+        {this.state.artists.length ? (
+          <div>
+            <button onClick={this.handlePreview}>anterior</button>
+            <button onClick={this.handleNext}>siguiente</button>
+            {this.state.artists.map((artist, i) =>
+              <Artist key={i}
+                name={artist.name}
+                image={artist.image}
+                songs={artist.songs}
+                like={this.handleLike} />
+            )[this.state.currentArtist]}
+          </div>
+        ) : (<h3 className="loading">Cargando <i className="loading-logo fas fa-spinner"></i></h3>)}
       </div>
     );
   }

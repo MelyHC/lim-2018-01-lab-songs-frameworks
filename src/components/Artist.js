@@ -4,9 +4,14 @@ const Artist = (props) => {
   return (
     <div>
       <img src={props.image} />
-      <h1>{props.name}</h1>
+      <h3>{props.name}</h3>
       {props.songs.map((song, i) =>
-        <div key={i}>{song.nameSong} <i className="fas fa-heart"></i><i className="far fa-thumbs-down"></i>{song.like}</div>
+        <div className="row song" key={i}>
+          <span className="col-7 text-left">{song.nameSong}</span>
+          <i className="fas fa-heart col-1" onClick={() => props.like(i)}></i>
+          <i className="far fa-thumbs-down col-1"></i>
+          <span className="col-3">{song.like}</span>
+        </div>
       )}
     </div>
   )
