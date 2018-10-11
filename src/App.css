@@ -11,6 +11,10 @@ h2 {
   padding-left: 15px;
 }
 
+i {
+  margin-top: 4px;
+}
+
 .fas {
   color: rgb(16, 199, 16);
 }
@@ -30,7 +34,7 @@ h2 {
 }
 
 .song {
-  padding: 10px;
+  padding: 10px 0px;
   font-size: 1.1em
 }
 
@@ -54,8 +58,8 @@ h2 {
   }
 }
 
-@media (max-width: 380px) {
+/* @media (max-width: 380px) {
   .song {
     font-size: 0.8em
   }
-}
+} */
