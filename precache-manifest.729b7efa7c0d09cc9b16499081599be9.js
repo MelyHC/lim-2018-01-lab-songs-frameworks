@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/lim-2018-01-lab-songs-frameworks/static/js/runtime~main.45d975ff.js"
   },
   {
-    "revision": "d2204d99b2e2e9357426",
-    "url": "/lim-2018-01-lab-songs-frameworks/static/js/main.d2204d99.chunk.js"
+    "revision": "76124e9e992c6fa023bc",
+    "url": "/lim-2018-01-lab-songs-frameworks/static/js/main.76124e9e.chunk.js"
   },
   {
     "revision": "6105a37ce77693a684b2",
     "url": "/lim-2018-01-lab-songs-frameworks/static/js/1.6105a37c.chunk.js"
   },
   {
-    "revision": "d2204d99b2e2e9357426",
-    "url": "/lim-2018-01-lab-songs-frameworks/static/css/main.8fdef1fb.chunk.css"
+    "revision": "76124e9e992c6fa023bc",
+    "url": "/lim-2018-01-lab-songs-frameworks/static/css/main.b287bbc5.chunk.css"
   },
   {
-    "revision": "1a68dcb8e40942b6c9bf0c9639cc78ad",
+    "revision": "210eb65f2acd226b7c80cebdd1004463",
     "url": "/lim-2018-01-lab-songs-frameworks/index.html"
   }
 ];
