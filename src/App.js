@@ -35,7 +35,7 @@ class App extends Component {
           arrAlbum[0].forEach(objSong => {
             songs.push({
               nameSong: objSong.name,
-              like: 0
+              like: objSong.playcount
             })
           });
           return {
